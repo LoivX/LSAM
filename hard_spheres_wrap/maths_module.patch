@@ -1,0 +1,21 @@
+910c910
+<     REAL, DIMENSION(0:), INTENT(in) :: c ! given coefficients (ascending powers of x)
+---
+>     REAL, DIMENSION(:), INTENT(in) :: c ! given coefficients (ascending powers of x)
+916,917c916,919
+<     f = c(UBOUND(c,1))
+<     DO i = UBOUND(c,1)-1, 0, -1
+---
+> !    f = c(UBOUND(c,1))
+> !    DO i = UBOUND(c,1)-1, 0, -1
+>     f = c(SIZE(c,1))
+>     DO i = SIZE(c,1), 1, -1
+934c936
+<     REAL, DIMENSION(0:4), PARAMETER :: g = 1.0 / [1,6,120,5040,362880]
+---
+>     REAL, DIMENSION(5), PARAMETER :: g = 1.0 / [1,6,120,5040,362880]
+957c959
+<     REAL, DIMENSION(0:4), PARAMETER :: g = 1.0 / [1,6,120,5040,362880]
+---
+>     REAL, DIMENSION(5), PARAMETER :: g = 1.0 / [1,6,120,5040,362880]
+
